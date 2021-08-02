@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body class="container-fluid">
+    
+<div class="w-100  d-flex justify-content-center align-items-center" style="height:100vh;">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 col-12 mx-auto ">
+            <div class="card bg-light">
+                <div class="row p-4">
+                    <div class="col-5 d-flex justify-content-center align-items-center ">
+                        <img src="images2/shoes5.png" class="img-fluid">
+                    </div>
+                    <div class="col-7 ">
+                        <div class="row p-2">
+                            <div class=" col-12 col-lg-7 col-md-12">
+                                <h3>Nike shoes</h3>
+                                <p>comfortable for everywhere</p>
+                                <p>&#8377;<span id="p1">2000</span></p>                                
+                            </div>
+                            <div class="col-lg-5 col-md-10    col-12">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <span class="page-link bi bi-file-minus bg-transparent" onclick="minus1()"></span>
+                                    </li>
+                                    <li class="page-item">
+                                        <input type="text" class="text-center page-link w-100" readonly value="1" id="input1" >                  
+                                    </li>
+                                    <li class="page-item">
+                                        <span class="page-link bi bi-file-plus bg-transparent" onclick="plus1()"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-----second card--->
+<div class="card bg-light">
+    <div class="row p-4">
+        <div class="col-5 d-flex justify-content-center align-items-center ">
+            <img src="images2/shoes5.png" class="img-fluid">
+        </div>
+        <div class="col-7 ">
+            <div class="row p-2">
+                <div class="col-12 col-lg-7 col-md-12">
+                    <h3>Nike shoes</h3>
+                    <p>comfortable for everywhere</p>
+                    <p>&#8377;<span id="p2">1000</span></p>                                
+
+                </div>
+                <div class="col-lg-5 col-md-10    col-12 ">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <span class="page-link bi bi-file-minus bg-transparent" onclick="minus2()"></span>
+                        </li>
+                        <li class="page-item">
+                            <input type="text" class="text-center page-link w-100" readonly value="1"id="input2" >                  
+                        </li>
+                        <li class="page-item">
+                            <span class="page-link bi bi-file-plus bg-transparent"onclick="plus2()"></span>
+                        </li>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+        <div class="col-md-5 col-12 mx-auto ">
+            <div class="row gy-1">
+                <div class="col-12 p-4 bg-light ">
+                    <div>
+                        <h3>Total Amount</h3>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p>prodcut price</p>
+                        <p>&#8377;<span id="pp"></span></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p>shipment price</p>
+                        <p>&#8377;<span id="sp">50</span></p>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <p>GST</p>
+                        <p>&#8377;<span id="gst">10</span></p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <p>you pay</p>
+                        <p>&#8377;<span id="tp"></span></p>
+                    </div>
+                </div>
+                <div class="col-12 bg-light p-1">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-button" data-bs-target='#colap' data-bs-toggle="collapse">Add Discount Coupon</button>
+                            <div class="collapse" id="colap">
+                                <div class="accordion-item bg-warning text-white">
+                                   <div class="d-flex">
+                                    <p class="bg-warning">#gotm </p>&nbsp;
+                                    <a class="bg-warning" onclick="coupon()">click here</a>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+var n1=1;
+
+function pp(){
+    let product1val= document.getElementById('p1').innerHTML;
+   let product2val= document.getElementById('p2').innerHTML;
+    document.getElementById('pp').innerHTML=parseFloat(product1val)+parseFloat(product2val);
+
+} 
+pp();
+
+function totalchrg(){
+    let a=document.getElementById('pp').innerHTML;
+let ship=    document.getElementById('sp').innerHTML;
+document.getElementById('tp').innerHTML=parseFloat(a)+parseFloat(ship);
+
+}
+totalchrg();
+
+
+ function coupon(){
+     let a=document.getElementById('tp').innerHTML;
+     let b=parseFloat(a)/10;
+     document.getElementById('tp').innerHTML=parseFloat(a)-b;
+    }
+ 
+
+
+function minus1(){
+
+    if(n1>=1){
+        n1--;
+        document.getElementById('input1').value=n1;
+    document.getElementById('input1').style.color="black";
+   
+   let product1val= document.getElementById('p1').innerHTML;
+   let total=document.getElementById('pp').innerHTML;
+   document.getElementById('pp').innerHTML=parseFloat(total)-parseFloat(product1val);
+}
+let a=document.getElementById('pp').innerHTML;
+if(a==0){
+    document.getElementById('sp').innerHTML=0;
+}else{
+    document.getElementById('sp').innerHTML=50;
+}
+let ship=    document.getElementById('sp').innerHTML;
+
+
+document.getElementById('tp').innerHTML=parseFloat(a)+parseFloat(ship);
+
+
+
+
+}
+
+function plus1(){
+    if(n1==5){
+        document.getElementById('input1').style.color="red";
+
+    }else{
+        n1++;
+        document.getElementById('input1').value=n1;
+           
+    let product1val= document.getElementById('p1').innerHTML;
+   let total=document.getElementById('pp').innerHTML;
+   document.getElementById('pp').innerHTML=parseFloat(total)+parseFloat(product1val);
+    }
+    let a=document.getElementById('pp').innerHTML;
+if(a==0){
+    document.getElementById('sp').innerHTML=0;
+}else{
+    document.getElementById('sp').innerHTML=50;
+}
+let ship=    document.getElementById('sp').innerHTML;
+
+
+document.getElementById('tp').innerHTML=parseFloat(a)+parseFloat(ship);
+
+
+}
+var n2=1;
+
+
+function minus2(){
+
+if(n2>=1){
+    n2--;
+    document.getElementById('input2').value=n2;
+document.getElementById('input2').style.color="black";
+ 
+let product2val= document.getElementById('p2').innerHTML;
+   let total=document.getElementById('pp').innerHTML;
+   document.getElementById('pp').innerHTML=parseFloat(total)-parseFloat(product2val);
+/*in this proct value product hve some value so we define again for shipment value*/   
+}
+
+let a=document.getElementById('pp').innerHTML;
+if(a==0){
+    document.getElementById('sp').innerHTML=0;
+}else{
+    document.getElementById('sp').innerHTML=50;
+}
+let ship=    document.getElementById('sp').innerHTML;
+
+
+document.getElementById('tp').innerHTML=parseFloat(a)+parseFloat(ship);
+
+
+}
+
+
+function plus2(){
+if(n2==5){
+    document.getElementById('input2').style.color="red";
+
+}else{
+    n2++;
+    document.getElementById('input2').value=n2;
+    
+let product2val= document.getElementById('p2').innerHTML;
+   let total=document.getElementById('pp').innerHTML;
+   document.getElementById('pp').innerHTML=parseFloat(total)+parseFloat(product2val);
+
+}
+let a=document.getElementById('pp').innerHTML;
+if(a==0){
+    document.getElementById('sp').innerHTML=0;
+}else{
+    document.getElementById('sp').innerHTML=50;
+}
+let ship=    document.getElementById('sp').innerHTML;
+
+
+document.getElementById('tp').innerHTML=parseFloat(a)+parseFloat(ship);
+
+
+}
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
